@@ -38,14 +38,14 @@ botonOFF:	    ;CICLO CON BOTÓN APAGADO (250 ms total)
     call tiempoOFF
     BSF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 1
     call tiempoOFF    
-    return   ;regresa
+    return   	    ;regresa
             
 botonON:	    ;CICLO CON BOTÓN PRENDIDO (1500 ms total)
     BCF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 0
     call tiempoON
     BSF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 1
     call tiempoON
-    return    ;regresa
+    return	    ;regresa
 
 tiempoOFF:	;CICLO DE TIEMPO DE 125 ms	        
     movlw d'7'
