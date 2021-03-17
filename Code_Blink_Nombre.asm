@@ -25,11 +25,11 @@ START
     BCF STATUS, RP0
 
 inicio: 
-    bcf PORTB,0
+    bcf PORTB,0     ;poner el puerto B0 (bit 0 del puerto B) en 0
     call tiempoA
-    bsf PORTB,0
+    bsf PORTB,0     ;poner el puerto B0 (bit 0 del puerto B) en 1
     call tiempoB
-    goto inicio
+    goto inicio     ;regresa al inicio, para repetir
 
 ;LOOP DE NOMBRE
 tiempoA: 
