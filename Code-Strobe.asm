@@ -22,26 +22,25 @@ START
     MOVLW b'00000010'
     MOVWF TRISB
     BCF STATUS, RP0
-    BCF PORTB,0
-    ;BCF PORTB,1	    ;RB0 = Led   -   RB1 = BotÛn
+    BCF PORTB,0    
     
 inicio:
     call botonOFF
-    BTFSS TRISB,1   ;comando que comprueba que el botÛn NO estÈ presionado, sino salta la lÌnea inmediata.
+    BTFSS TRISB,1   ;comando que comprueba que el bot√≥n NO est√© presionado, sino salta la l√≠nea inmediata.
     goto $-2
     call botonON
-    BTFSC TRISB,1   ;comando que comprueba que el botÛn SÕ estÈ presionado, sino salta la lÌnea inmediata.
+    BTFSC TRISB,1   ;comando que comprueba que el bot√≥n S√ç est√© presionado, sino salta la l√≠nea inmediata.
     goto $-2
     goto inicio	    ;regresa al inicio del programa
     
-botonOFF:	    ;CICLO CON BOT”N APAGADO (250 ms total)
+botonOFF:	    ;CICLO CON BOT√ìN APAGADO (250 ms total)
     BCF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 0
     call tiempoOFF
     BSF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 1
     call tiempoOFF    
     goto botonOFF   ;regresar y repetir
             
-botonON:	    ;CICLO CON BOT”N PRENDIDO (1500 ms total)
+botonON:	    ;CICLO CON BOT√ìN PRENDIDO (1500 ms total)
     BCF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 0
     call tiempoON
     BSF PORTB,0	    ;poner el puerto B0 (bit 0 del puerto B) en 1
