@@ -21,23 +21,23 @@ MOVWF TRISA
 BCF STATUS, RP0
 ;------------------------------------------------------------------------------
 Asignacion:        
-    MOVLW b'0000110' ; guarda un 6 decimal en W
+    MOVLW b'00000110' ; guarda un 6 decimal en W
     MOVWF PORTB; mueve W a PORTB
     CALL Boton
     CALL Tiempo
-    DECFSZ PORTB,F; decrementa 1 a PORTB; si es 0, salta la lÌnea inferior  
+    DECFSZ PORTB,F; decrementa 1 a PORTB; si es 0, salta la l√≠nea inferior  
     GOTO $-3
     GOTO Asignacion
     
-Tiempo: ;FUNCI”N DE CONTADOR DE 255 A 0
+Tiempo: ;FUNCI√ìN DE CONTADOR DE 255 A 0
     MOVLW d'255'; guarda un 255 en W
     MOVWF i; guarda a W en casilla "i"
     DECFSZ i; decrementa a "i"   
     GOTO $-1
     RETURN
     
-Boton: ;FUNCI”N QUE COMPRUEBA SI UN BOT”N EST¡ PRESIONADO
-    BTFSS TRISA,0; comprueba si el botÛn est· activo
+Boton: ;FUNCI√ìN QUE COMPRUEBA SI UN BOT√ìN EST√Å PRESIONADO
+    BTFSS TRISA,0; comprueba si el bot√≥n est√° activo
     GOTO $-1
     RETURN
     
